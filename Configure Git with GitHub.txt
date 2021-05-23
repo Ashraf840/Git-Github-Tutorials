@@ -71,14 +71,14 @@ Password for 'https://Ashraf840@github.com': Chirochena1993
 	git commit -m "Second commit: to branch 'dev'"
 	git push -u origin dev
 Username for 'https://github.com': Ashraf840
-Password for 'https://Ashraf840@github.com': Chirochena1993
+Password for 'https://Ashraf840@github.com': **************
 
 15. Check this commit-push in GitHub, merge this commit to the "main" branch of GitHub. Make a GitHub commit message
 
 
 
 
-######	git reset --mixed origin/dev	# reset the remote branch from "main" to "dev"
+????????######	git reset --mixed origin/dev	# reset the remote branch from "main" to "dev"
 
 
 
