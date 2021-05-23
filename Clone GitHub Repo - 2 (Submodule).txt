@@ -1,0 +1,37 @@
+Basic CI/CD Integration using Git & GitHub
+(It's configured inside Zorin OS 15.3)
+
+
+>>> Objecttives
+>>> Clone GitHub Repo to a local machine's directory,
+>>> Create a new Git branch.
+>>> Make changes & commit it to another branch in Git
+>>> Push that new branch to the remote GitHub repo
+>>> Push a local Git repo to the "main" branch remote GitHub repo
+
+>>> Create a submodule of git clone
+
+
+1. Initialize git inside the directory
+	git init
+
+2. Create & switch to a new git branch ("clone_branch")
+	git checkout -b clone_branch main
+
+3. Create remote which will connect, pull & push to remote GitHub repo
+	git remote add origin https://github.com/Ashraf840/Git-Github-Tutorials.git
+
+4. As the local directory has previously got a ".git" file inside of it, the we need to clone the GitHub repo as a submodule inside the local machine
+	git submodule add https://github.com/Ashraf840/Git-Github-Tutorials.git
+
+5. Now check the status of the file
+	git status
+
+6. Add all the files to git so that it can track the files
+	git add .
+
+7. Commit the changes inside git
+	git commit -m "Cloned from GitHub into local Git"
+
+8. Push this commit to remote repository's "clone_branch_submodule"
+	git push -u origin clone_branch_submodule
