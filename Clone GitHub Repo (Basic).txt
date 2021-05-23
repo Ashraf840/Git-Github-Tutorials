@@ -1,0 +1,22 @@
+Basic CI/CD Integration using Git & GitHub
+(It's configured inside Zorin OS 15.3)
+
+
+>>> Objecttives
+>>> Clone GitHub Repo to a local machine's directory,
+>>> Create a new Git branch.
+>>> Make changes & commit it to another branch in Git
+>>> Push that new branch to the remote GitHub repo
+
+
+1. Clone the GitHub repo to the local machine's directory
+	git clone https://github.com/Ashraf840/Git-Github-Tutorials.git
+
+2. Check the status of the file & make sure to change the "main" branch to "clone_branch" in Git
+	git status
+
+3. Create & switch to a new git branch "clone_branch"
+	git checkout -b "clone_branch"
+
+4. Add all the files in the new git branch "clone_branch"
+	git add .
