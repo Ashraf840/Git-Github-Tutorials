@@ -20,3 +20,9 @@ Basic CI/CD Integration using Git & GitHub
 
 4. Add all the files in the new git branch "clone_branch"
 	git add .
+
+5. Commit all the changes inside Git
+	git commit -m "Basic git cloning from GitHub repo"
+
+6. Push this commit to remote "clone_branch" in GitHub
+	git push -u origin clone_branch
