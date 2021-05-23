@@ -3,13 +3,12 @@ Basic CI/CD Integration using Git & GitHub
 
 
 >>> Objecttives
->>> Clone GitHub Repo to a local machine's directory,
->>> Create a new Git branch.
->>> Make changes & commit it to another branch in Git
->>> Push that new branch to the remote GitHub repo
->>> Push a local Git repo to the "main" branch remote GitHub repo
+>>> Initialize git
+>>> Create & switch the branch
+>>> Clone a submodule of github repo
+>>> Add remote to the working directory to connect, pull, push commits to remote GitHub repo
+>>> Then add, change, commit & push to the GitHub account
 
->>> Create a submodule of git clone
 
 
 1. Initialize git inside the directory
