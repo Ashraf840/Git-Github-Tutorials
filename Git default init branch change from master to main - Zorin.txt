@@ -1,0 +1,49 @@
+GitHub Repo:  Git-Github-Tutorials
+Branch: main
+
+
+By default Zorin OS 16 comes with a git version 2.25.x.
+
+Thus the default init branch is master. And it dowsn't allow to change the global configuration of the default init branch from 'master' to 'main'.
+
+So, the follow steps will allow git to make default init branch to 'main'.
+
+1. Uninstall git from the machine. Check if it's completely uninstalled.
+	sudo apt-get remove git
+	git --version
+
+2. Add apt-repository of git. Then reinstall the latest vrsion of git into the Zorin machine.
+	suod su
+	add-apt-repository ppa:git-core/ppa
+	apt-get update
+	apt-get install git
+
+3. Now configure the initial global configs of git.
+	git config --global user.name "Ashraf840"
+	git config --global user.email "shift2unleashed2011@gmail.com"
+
+4. Now configure the default global init branch of Git.
+	git config --global init.defaultBranch main
+
+5. View all the global git configurations.
+	git config --global --list
+
+Now, whenever anyone initialize git into a folder in Zorin OS 16, git will automatically initialize the defult git branch to 'main' instead of 'master'.
+
+
+This will be appended inside the "Git-Github-Tutorials" repo's 'main' branch. So,
+Firstly, the GitHub repo is cloned to a dir.
+	git clone https://github.com/Ashraf840/Git-Github-Tutorials.git
+	cd Git-Github-Tutorials/
+
+Then remove the ".git" from the dir.
+	rm -rf .git
+
+Initialize the new git in that dir. Add remote of the GitHub repo (SSH Link). Add all the files and make a suitable commit. Then try to push back this local git repo to the GitHub ("Git-Github-Tutorials") repo's branch 'main'.
+	git init
+	git remote add originSSH git@github.com:Ashraf840/Git-Github-Tutorials.git
+	git add .
+	git status
+	git commit -m "Suitable message"
+	git push -u origin main
+

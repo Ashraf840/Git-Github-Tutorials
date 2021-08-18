@@ -22,7 +22,14 @@ Basic CI/CD Integration using Git & GitHub
 
 4. It's a git configuration which makes git to create the default branch name as specified (in my case, it's "main")
 	git config --global init.defaultBranch main
-   Even from now, git will create default branch named as "main" in any other project.
+   Even from now, git will create default branch named as "main" in any other project. 
+   To check all the global configurations list,
+   	git config --global --list
+   
+   To unset/ remove any git config. Look at the following examples.
+   	git config --global --unset init.defaultBranch
+   	git config --global --unset user.name
+   	git config --global --unset user.email
 
 
 5. Create a Github repository
@@ -52,7 +59,9 @@ Changes to be committed:
 	git commit -m "initial commit"
 
 11. Add the name of remote as "origin" & add the URL of the remote repository, which will connect the local git repo with the remote GitHub repo ("Git-Github-Tutorials") using this url.
+    Then check the available remotes for this local git repository.
 	git remote add origin https://github.com/Ashraf840/Git-Github-Tutorials.git
+	git remote -v
 
 12. First push this initial commit to the "main" branch of the GitHub repository, (later, all the pushes will made to a GitHub branch directly)
 	git push -u origin main
