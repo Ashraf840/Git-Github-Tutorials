@@ -1,0 +1,48 @@
+
+
+************* Generate an SSH key inside the Zorin Os 16 *************
+
+01. Generate an SSH Key. Before we do anything, we need an SSH key to work with. We generate the key through the terminal or git bash. 
+	ssh-keygen -t rsa -b 4096 -C "your_email_connected_to_github_account@example.com"
+    
+    In my case, the email is "shift2unleashed2011@gmail.com"
+
+02. You will be asked for a location to store the key and you will want to just click Enter to save it in the default location.
+	press Enter Key
+
+03. Next it will ask you for a passphrase.
+	password: Chirochena1993
+
+
+
+************* Add Your SSH Key to your SSH Agent *************
+
+04. Next we need to let our computer’s SSH agent (the program that distributes and uses the SSH keys) to know which SSH key to use. 
+    You probably only have one SSH key on your computer, so this won’t be very hard, but you could theoretically have an infinite 
+    number of them. This is why we tell the SSH agent which one to use. Of course first we need to enable the SSH agent.
+    	eval "$(ssh-agent -s)"
+
+   [Output] Agent pid xyz_number
+
+05. Now you should have it enabled and you can now set it to use the key we just generated.
+	ssh-add ~/.ssh/id_rsa
+
+    Enter the passphrase.
+    	Chirochena1993
+
+
+
+************* Add the SSH Key to GitHub *************
+
+06. Go to the settings page inside the GitHub & open the "SSH & GOG Keys" tab. We can have multiple SSH keys in this GitHub account 
+    which will be associated with multiple machines.
+
+07. Now we have to paste in the RSA key inside the 'Key' text-field. You unfortunately don’t have a copy feature built into all 
+    distributions of Linux, so if you don’t have one already we will install xClip. Now that you have it, you can copy it to your clipboard.
+    	xclip -sel clip < ~/.ssh/id_rsa.pub
+    
+    Now you will have your SSH key in your clipboard of your computer. You can simply paste it into GitHub.
+
+08. Now, add another remote in the local git-repo using the SSH-link collected from the specified GitHub repo.
+    Then try to push the locally committed git repo to the GitHub.
+
