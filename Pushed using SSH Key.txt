@@ -1,0 +1,35 @@
+>>>>>>>>>>>>>>>>>>>>> Work with GitHub and Multiple Accounts in the Same Machine <<<<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>>>>>>>>>>>> Git Push using SSH Key <<<<<<<<<<<<<<<<<<<<<
+
+
+Ref Vid:  https://www.youtube.com/watch?v=fnSRBRiQIU8
+
+
+Scenario: In certain times, we need to pull & push to multiple GitHub Accounts from the same machine.
+    Thus it's convenient to use SSH key intead of using the HTTPS URLs of the GitHub repos.
+
+#################################
+>>> Steps ( Linux-Ubuntu ):
+1. Generate an SSH key in the machine.
+
+2. Add the SSH public key to the GitHub account using it's "Settings -> SSH & GPG Keys -> New SSH Key (btn)"
+3. We need to tell the SSH of the machine about the new SSH key.
+        ssh-add ~/.ssh/id_rsa_creativeIT
+4. To be able to toggle between multiple account while pulling/ pushing into multiple GitHub accounts, we need to 
+    define the github-remote path using SSH provided by the repo. Thus, within the ".ssh" directory, create a "config" 
+    file to explicitly define the GitHub-Host-Credentials for the each SSH key, cause these will contain the "Host", 
+    "HostName", "User" & "IdentityFile".
+    Host = it will be changed & used in the github-remote-url-path.
+    HostName = Hostname will remain the same.
+    User = User can be defined according to the GitHub account's userName.
+    IdentityFile = We need to specify the path of the specific SSH Key here.
+
+5. Now try to push to the GitHub account by using the SSH key.
+    Add the uncommited file to the git repo & make commit.
+    Then add remote after staging the files. But this time, the remote will be construct using the ssh-host.
+    i.e.
+        git remote add origin git@github-creativeIT:tanjimash/FastAPI_Intro.git
+    Syntax:  git remote add origin git@Host_defined_config_file_SSH_dir:githubUsername/repoName.git
+
+6. Now try pushing conventionally using that remote constructed with SSH method.
+#################################
