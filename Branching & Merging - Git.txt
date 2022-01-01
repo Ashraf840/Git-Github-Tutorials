@@ -1,0 +1,19 @@
+########## Branching & Merging
+
+
+Scenario:
+>  Suppose there are two branches in the local git repository. One branch has some updates & pushed in a GitHub account.
+    Another branch is used to push in a separate GitHub account. The elegant way of updating the other local git branch,
+    is to use the "git merge" cmd.
+
+
+
+Steps:
+1. Make updates to the current local git branch.
+    ( NB ): Try to push that updates to the desired GitHub account repo.
+
+2. Switch to the branch which needs to be updated according to the updated branch. Use the following cmd.
+        git checkout branchName
+
+3. Use the gti merge cmd along with the updatedBranchName. Use the following cmd.
+        git merge updatedBranchname
