@@ -65,6 +65,8 @@ Refs:
 [ For adding ssh-rsa key in the ssh-system of the machine - using Powershell ]
     https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement
 
+Video Ref:  https://www.youtube.com/watch?v=TYyTXxVWOYA
+
 
 
 ## [ NOTE ]:  Use the "Git Bash" to make the push using SSH key.
