@@ -10,15 +10,32 @@ Scenario: In certain times, we need to pull & push to multiple GitHub Accounts f
 
 #################################
 >>> Steps ( Linux-Ubuntu ):
-1. Generate an SSH key in the machine.
+1. Generate an SSH key in the machine using the command in the terminal.
+        ssh-keygen -t rsa -C "emailAddress@gmail.com"
 
-2. Add the SSH public key to the GitHub account using it's "Settings -> SSH & GPG Keys -> New SSH Key (btn)"
+    It'll ask for the specific directory to save the ssh-key.
+    [ Optional ]: If no other ssh-key is there, then make more descriptive ssh-key-name in order to avoid overriding any previous ssh-keys.
+    [ NOTE ]: It'll generate the ssh-key inside the ".ssh" directory of the system-drive. In this case, the ".ssh" key will be along with 
+        the "Download", "Documents", "Music", "Videos" direcotries etc.
+
+2. Add the SSH public key to the GitHub account using it's "Settings -> SSH & GPG Keys -> New SSH Key (btn)".
 3. We need to tell the SSH of the machine about the new SSH key.
         ssh-add ~/.ssh/id_rsa_creativeIT
+
 4. To be able to toggle between multiple account while pulling/ pushing into multiple GitHub accounts, we need to 
     define the github-remote path using SSH provided by the repo. Thus, within the ".ssh" directory, create a "config" 
     file to explicitly define the GitHub-Host-Credentials for the each SSH key, cause these will contain the "Host", 
     "HostName", "User" & "IdentityFile".
+
+( for the default github account, depending on the machine - whether a home_machine or the office_machine )
+[ Example ] - The Example & the definition is created from the office_desktop.
+Host github-creativeIT
+    HostName github.com
+    User tanjimash
+    IdentityFile ~/.ssh/id_rsa_creativeIT
+
+
+[ Definition ]
     Host = it will be changed & used in the github-remote-url-path.
     HostName = Hostname will remain the same.
     User = User can be defined according to the GitHub account's userName.
@@ -28,8 +45,44 @@ Scenario: In certain times, we need to pull & push to multiple GitHub Accounts f
     Add the uncommited file to the git repo & make commit.
     Then add remote after staging the files. But this time, the remote will be construct using the ssh-host.
     i.e.
-        git remote add origin git@github-creativeIT:tanjimash/FastAPI_Intro.git
-    Syntax:  git remote add origin git@Host_defined_config_file_SSH_dir:githubUsername/repoName.git
+        git remote add origin git@github-creativeIT:Ashraf840/Git-Github-Tutorials.git
+    Syntax:  git remote add origin git@Host_defined_config_file_SSH_system:githubUsername/repoName.git
 
 6. Now try pushing conventionally using that remote constructed with SSH method.
+#################################
+
+
+
+
+
+
+
+
+#################################
+>>> Steps ( Windows 10 ):
+
+Refs:
+[ For adding ssh-rsa key in the ssh-system of the machine - using Powershell ]
+    https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement
+
+
+
+## [ NOTE ]:  Use the "Git Bash" to make the push using SSH key
+
+1. Go the "All Settings -> Apps -> Optional Features". Check for the "OpenSSH Client" in the list. 
+    It that's not there, then install the "OpenSSH Client" feature by using the "Add a feature".
+
+2. Open the "cmd" & execute the following command.
+        ssh-keygen -t rsa -C "emailAddress@gmail.com"
+    
+    Since it'll ask for the directory to save the ssh-key. Add more descriptive name for the SSH key in order to avoid overriding any previous ssh-key.
+    
+3. To add this ssh-key into the SSH-system of the machine, use the "Powershell".
+    Firstly, enable the SSH-agent in the system. Use the following command.
+        Get-Service ssh-agent | Set-Service -StartupType Manual
+        Start-Service ssh-agent
+        Get-Service ssh-agent
+        ssh-add ~\.ssh\ssh_key_name
+
+4. The rest of the steps might be similar to the "Steps ( Linux-Ubuntu )".
 #################################
