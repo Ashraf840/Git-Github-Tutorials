@@ -67,7 +67,7 @@ Refs:
 
 
 
-## [ NOTE ]:  Use the "Git Bash" to make the push using SSH key
+## [ NOTE ]:  Use the "Git Bash" to make the push using SSH key.
 
 1. Go the "All Settings -> Apps -> Optional Features". Check for the "OpenSSH Client" in the list. 
     It that's not there, then install the "OpenSSH Client" feature by using the "Add a feature".
@@ -82,7 +82,9 @@ Refs:
         Get-Service ssh-agent | Set-Service -StartupType Manual
         Start-Service ssh-agent
         Get-Service ssh-agent
-        ssh-add ~\.ssh\ssh_key_name
+    
+    [ NOTE ]:  Redirect to the "/.ssh/" directory first in the system-drive. Then execute the following commnad.
+        ssh-add ssh_key_name
 
 4. The rest of the steps might be similar to the "Steps ( Linux-Ubuntu )".
 #################################
