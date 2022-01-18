@@ -14,3 +14,22 @@ Ok, I suppose it needs some clarification. In Git, as you probably know, you're 
 However, sometimes--by whatever reason--you think that it would actually be better if these two--remote and local--were one branch. Like in SVN. It is here where git pull --rebase comes into play. You no longer merge--you actually commit on top of the remote branch. That's what it actually is about.
 
 Whether it's dangerous or not is the question of whether you are treating local and remote branch as one inseparable thing. Sometimes it's reasonable (when your changes are small, or if you're at the beginning of a robust development, when important changes are brought in by small commits). Sometimes it's not (when you'd normally create another branch, but you were too lazy to do that). But that's a different question.
+
+
+
+# If we want to fetch any specific branch from a github-repo, we should use the "git pull" command instead of git clone.
+    Firstly, instantiate an empty git repository to a directory where we want to fecth that specific-github-repo-branch.
+    Then create a remote for communicating with that github-repo using the local-git.
+    Finally use the following cmd to pull the specific-repo-branch from the github.
+            git pull --rebase remoteName github_branchName
+    But after making changes into that fetched repo-branch, if we want to make a normal push into that specific branch, git will be rejected by github.
+    [NB]:  The explanation is well-described in the following link.
+        https://stackoverflow.com/a/39400690
+    [Solution]: Instead of making the normal push, we should use the '-f' flag along with our push cmd, which refers to 'force' & thus this cmd will forcefully push the modified repo to the specific github-repo-branch.
+            [Normal Push]:   git push -u remoteName branchName
+            [Forced Push]:   git push -f remoteName branchName
+    
+[Summary]: While "git pull --rebase" is used, later, if we want to push the modified repo to the specific github-repo-branch, instead of using the normal-push, we should use the force-push for the first time.
+        git push -f remoteName branchName
+
+
