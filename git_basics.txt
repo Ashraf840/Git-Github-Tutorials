@@ -1,0 +1,8 @@
+#### Rollback to Previous Git Commit
+Check the git commit logs in local repository. From that, get the first 7 DIGITS OF THE COMMIT & use the following cmd to rollback to a specific commit.
+    git reset commitID
+
+[Shortcut]: To rollback to the previous immediate commit without knowing the commit ID from the log.
+    git reset head~1
+[Note]: "~1" refers to the number of commits backward to which the code tree will revert.
+
