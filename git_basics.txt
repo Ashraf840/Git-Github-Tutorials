@@ -35,3 +35,9 @@ You can either work with the last commit that still had the file, or the commit 
 
 In the second case, checkout the file from one commit before that.
     git checkout <deletion commit hash>~1 -- <filename>
+
+
+
+
+#### Compare a local Git branch with its remote branch
+    git diff <local branch> <remote name>/<remote branch>
