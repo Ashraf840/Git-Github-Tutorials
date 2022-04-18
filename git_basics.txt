@@ -6,3 +6,18 @@ Check the git commit logs in local repository. From that, get the first 7 DIGITS
     git reset head~1
 [Note]: "~1" refers to the number of commits backward to which the code tree will revert.
 
+
+
+
+
+#### Restoring deleted files in Git
+After deleting a file accidenlty, & immediately realize that it was a mistake, use the cmd along with the deleted fileName.
+    git ckeckout HEAD fileName
+
+[Note]: This will work regardless of whether the deletion was staged or not.
+
+#### I deleted a file and committed the deletion
+[Personal Approach]: Rollback to the previous commit using the "git reset ....." cmd, subsequently, restore the deleted file using the following cmd.
+    git reset HEAD~1   OR,    git reset commitID
+    git checkout HEAD fileName
+
