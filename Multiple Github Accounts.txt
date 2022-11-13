@@ -1,0 +1,23 @@
+****************** Settings up Multiple Github Account to Single Machine ******************
+
+# Create "config" file, which doesn't contain any extension. Will contain similar contains like the following:
+-----------------------------------------------
+#Default GitHub
+# Personal Github
+Host github.com
+  HostName github.com
+  User ashraf840
+  IdentityFile ~/.ssh/id_rsa_github_personal
+
+# Official Github
+Host github.com-work
+  HostName github.com
+  User tanjim840
+  IdentityFile ~/.ssh/id_rsa_github_official_tf
+-----------------------------------------------
+
+# Place this "config" file inside "C:\Users\PC-User-Name\.ssh\config".
+# Need to remember that, we require to inject "-work" phrase while creating any git-remote regarding any of the Official Github repos.
+  In this way, we can add more that two github account configuration in a single machine.
+
+
